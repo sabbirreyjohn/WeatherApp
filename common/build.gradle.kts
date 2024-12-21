@@ -34,7 +34,6 @@ dependencies {
     implementation(libs.kotlinx.serialization)
 
     implementation(libs.hilt.android)
-    implementation(libs.firebase.auth)
     kapt(libs.hilt.android.kapt)
     implementation(libs.hilt.compose)
     kapt(libs.hilt.compiler.kapt)

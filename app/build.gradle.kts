@@ -4,7 +4,6 @@ plugins {
     alias(libs.plugins.hiltAndroid)
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
     kotlin("kapt")
-    alias(libs.plugins.google.gms.google.services)
     kotlin(libs.plugins.kotlinx.serialization.get().pluginId)
 }
 
