@@ -1,2 +1,1 @@
-# WeatherApp
-A simple weather app
+# Multi-Module-Template
