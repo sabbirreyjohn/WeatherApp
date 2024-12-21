@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import live.studyquran.android.common.data.DataStoreRepository
 import xyz.androidrey.multimoduletemplate.network.NetworkResult
@@ -24,17 +25,16 @@ class HomeViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            dataStoreRepository.getLocation().collect {
-                if (it.isNotEmpty()) {
-                    _uiState.value = HomeUiState.Searching
-                    when (val status = repo.getCurrentData(it)) {
-                        is NetworkResult.Error -> {
-                            _uiState.value = HomeUiState.Error(status.exception.message!!)
-                        }
+            val cityName = dataStoreRepository.getLocation().first()
+            if (cityName.isNotEmpty()) {
+                _uiState.value = HomeUiState.Searching
+                when (val status = repo.getCurrentData(cityName)) {
+                    is NetworkResult.Error -> {
+                        _uiState.value = HomeUiState.Error(status.exception.message!!)
+                    }
 
-                        is NetworkResult.Success -> {
-                            _uiState.value = HomeUiState.CitySelected(status.result)
-                        }
+                    is NetworkResult.Success -> {
+                        _uiState.value = HomeUiState.CitySelected(status.result)
                     }
                 }
             }

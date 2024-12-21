@@ -33,7 +33,7 @@ The app is developed using a **multi-modular approach** to ensure scalability fo
    - Contains the core functionality of the weather application.
    - Handles fetching weather data, processing it, and displaying it to the user.
 
-2. **Shared Modules** (e.g., Core, Data):
+2. **Shared Modules** (e.g., Common, Theme, Network):
    - Provide reusable components and abstractions such as networking, DI setup, and model definitions.
 
 ---
