@@ -30,6 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
@@ -64,18 +65,19 @@ fun HomeScreen(viewModel: HomeViewModel, navController: NavHostController) {
         DashboardStateHandler(
             uiState,
             searchSuccess = {
-                SearchResult(it){
+                SearchResultCard(it) {
                     viewModel.citySelected(it)
                 }
+            },
+            citySelected = {
+                WeatherDetailsCard(it)
             }
-        ) { data ->
-            WeatherCard(data)
-        }
+        )
     }
 }
 
 @Composable
-fun SearchResult(data: CurrentData, citySelected: (CurrentData) -> Unit) {
+fun SearchResultCard(data: CurrentData, citySelected: (CurrentData) -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -101,7 +103,7 @@ fun SearchResult(data: CurrentData, citySelected: (CurrentData) -> Unit) {
                         fontWeight = FontWeight.Bold
                     )
                     Text(
-                        text = "°", fontSize = 24.sp,
+                        text = stringResource(R.string.degree), fontSize = 24.sp,
                         fontWeight = FontWeight.Bold
                     )
                 }
@@ -118,7 +120,7 @@ fun SearchResult(data: CurrentData, citySelected: (CurrentData) -> Unit) {
 }
 
 @Composable
-fun WeatherCard(data: CurrentData) {
+fun WeatherDetailsCard(data: CurrentData) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.padding(8.dp)
@@ -138,7 +140,7 @@ fun WeatherCard(data: CurrentData) {
             Spacer(modifier = Modifier.width(4.dp))
             Icon(
                 painter = painterResource(R.drawable.arrow),
-                contentDescription = "Edit Location",
+                contentDescription = "Arrow",
                 modifier = Modifier.size(16.dp)
             )
         }
@@ -149,7 +151,7 @@ fun WeatherCard(data: CurrentData) {
                 fontWeight = FontWeight.Light
             )
             Text(
-                text = "°",
+                text = stringResource(R.string.degree),
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Light
             )
@@ -166,9 +168,12 @@ fun WeatherCard(data: CurrentData) {
                     .padding(24.dp)
                     .fillMaxWidth()
             ) {
-                WeatherDataPoint("Humidity", "${data.current.humidity}%")
-                WeatherDataPoint("UV", "${data.current.uv}")
-                WeatherDataPoint("Feels Like", "${data.current.feelslike_c}°")
+                WeatherDataPoint(stringResource(R.string.humidity), "${data.current.humidity}%")
+                WeatherDataPoint(stringResource(R.string.uv), "${data.current.uv}")
+                WeatherDataPoint(
+                    stringResource(R.string.feels_like),
+                    "${data.current.feelslike_c}°"
+                )
             }
         }
     }
