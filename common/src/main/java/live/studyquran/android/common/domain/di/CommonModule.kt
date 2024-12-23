@@ -10,6 +10,7 @@ import io.ktor.client.HttpClient
 import io.ktor.http.URLProtocol
 import live.studyquran.android.common.BuildConfig
 import live.studyquran.android.common.data.DataStoreRepository
+import live.studyquran.android.common.domain.repository.DataStoreRepositoryImpl
 import xyz.androidrey.multimoduletemplate.network.http.HttpClientBuilder
 import xyz.androidrey.multimoduletemplate.network.http.RequestHandler
 import javax.inject.Singleton
@@ -32,6 +33,6 @@ class CommonModule {
     @Provides
     @Singleton
     fun providesDataStoreRepository(@ApplicationContext context: Context): DataStoreRepository {
-        return DataStoreRepository(context)
+        return DataStoreRepositoryImpl(context)
     }
 }

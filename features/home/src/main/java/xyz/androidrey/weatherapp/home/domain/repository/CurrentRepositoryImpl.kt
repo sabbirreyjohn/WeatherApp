@@ -6,7 +6,7 @@ import xyz.androidrey.weatherapp.home.data.repository.CurrentRepository
 import xyz.androidrey.weatherapp.home.domain.entity.CurrentData
 import javax.inject.Inject
 
-class CurrentRepositoryImpl @Inject constructor(private val requestHandler: RequestHandler) :
+open class CurrentRepositoryImpl @Inject constructor(private val requestHandler: RequestHandler) :
     CurrentRepository {
     override suspend fun getCurrentData(query: String) =
         requestHandler.get<CurrentData>(

@@ -11,6 +11,7 @@ This repository contains a weather application developed as part of an assignmen
 - **Error Handling**: Graceful handling of invalid cities or network errors.
 - **Persistent Data**: Stores user preferences or settings using DataStore.
 - **Figma Design Accuracy**: Matches the provided Figma design with 95% visual consistency.
+- **Testing**: Includes ViewModel unit tests and Espresso UI tests for Compose screens.
 
 ---
 
@@ -22,6 +23,9 @@ This repository contains a weather application developed as part of an assignmen
 - **Networking**: Ktor
 - **Dependency Injection**: Hilt
 - **Persistence**: DataStore
+- **Testing**:
+   - **Unit Tests**: ViewModel tests.
+   - **UI Tests**: Espresso integration for Compose screens.
 
 ---
 
@@ -32,6 +36,7 @@ The app is developed using a **multi-modular approach** to ensure scalability fo
 1. **Home Module**:
    - Contains the core functionality of the weather application.
    - Handles fetching weather data, processing it, and displaying it to the user.
+   - Includes ViewModel unit tests and Espresso UI tests.
 
 2. **Shared Modules** (e.g., Common, Theme, Network):
    - Provide reusable components and abstractions such as networking, DI setup, and model definitions.
@@ -61,6 +66,10 @@ The app is developed using a **multi-modular approach** to ensure scalability fo
 ### **7. Clean Architecture**
 - Implemented clean architecture principles to keep the code modular, testable, and maintainable.
 
+### **8. Testing**
+- Added **ViewModel unit tests** to ensure business logic functions as expected.
+- Integrated **Espresso UI tests** for Compose screens to validate the UI behavior and user interactions.
+
 ---
 
 ## **UI**
@@ -85,17 +94,17 @@ The app is developed using a **multi-modular approach** to ensure scalability fo
    base_url=api.weatherapi.com
    api_key=e43d6e8321b246f7a69154743242012
    ```
-4. Build and run the app on an emulator or physical device. 
+4. Build and run the app on an emulator or physical device.
 
 ---
 
 ## **Future Improvements**
 
-- Add unit and integration tests for better test coverage.
+- Increase test coverage with more unit and UI tests.
 - Improve error handling to provide more detailed feedback to the user.
 - Extend features such as saving favorite cities or displaying historical weather data.
 - Optimize network calls and caching for better performance.
 
 ---
 
-This app demonstrates adherence to the requirements while showcasing my ability to build scalable, maintainable Android applications using modern tools and best practices.
+This app demonstrates adherence to the requirements while showcasing my ability to build scalable, maintainable Android applications using modern tools and best practices, along with integration of robust testing strategies.
