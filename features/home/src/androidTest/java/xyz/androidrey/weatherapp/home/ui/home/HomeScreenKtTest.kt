@@ -29,7 +29,6 @@ class HomeScreenTest {
         viewModel = HomeViewModel(FakeRepository(), FakeDataStoreRepository())
         navController = TestNavHostController(ApplicationProvider.getApplicationContext())
     }
-
     @Test
     fun searchBar_isDisplayed() {
         composeTestRule.setContent {
