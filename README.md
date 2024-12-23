@@ -8,7 +8,7 @@ This repository contains a weather application developed as part of an assignmen
 ## App Demo
 
 <video width="640" height="360" controls>
-  <source src="https://github.com/sabbirreyjohn/WeatherApp/raw/refs/heads/main/My%20Movie%20-%20Small.mov" type="video/mp4">
+  <source src="https://raw.githubusercontent.com/sabbirreyjohn/WeatherApp/main/My Movie-Small.mov" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
