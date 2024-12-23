@@ -14,21 +14,21 @@ import xyz.androidrey.weatherapp.home.domain.entity.CurrentData
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(
-    private val repo: CurrentRepository,
-    private val dataStoreRepository: DataStoreRepository
+open class HomeViewModel @Inject constructor(
+    private val repo: CurrentRepository?,
+    private val dataStoreRepository: DataStoreRepository?
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<HomeUiState>(HomeUiState.NoneSelected)
-    val uiState = _uiState.asStateFlow()
+    open val uiState = _uiState.asStateFlow()
 
 
     init {
         viewModelScope.launch {
-            val cityName = dataStoreRepository.getLocation().first()
-            if (cityName.isNotEmpty()) {
+            val cityName = dataStoreRepository?.getLocation()?.first()
+            if (cityName!!.isNotEmpty()) {
                 _uiState.value = HomeUiState.Searching
-                when (val status = repo.getCurrentData(cityName)) {
+                when (val status = repo?.getCurrentData(cityName)) {
                     is NetworkResult.Error -> {
                         _uiState.value = HomeUiState.Error(status.exception.message!!)
                     }
@@ -36,16 +36,24 @@ class HomeViewModel @Inject constructor(
                     is NetworkResult.Success -> {
                         _uiState.value = HomeUiState.CitySelected(status.result)
                     }
+
+                    null -> {
+
+                    }
                 }
             }
         }
+    }
+
+    fun updateUiState(state: HomeUiState) {
+        _uiState.value = state
     }
 
 
     fun getCurrentData(query: String) {
         viewModelScope.launch {
             _uiState.value = HomeUiState.Searching
-            when (val status = repo.getCurrentData(query)) {
+            when (val status = repo?.getCurrentData(query)) {
                 is NetworkResult.Error -> {
                     _uiState.value = HomeUiState.Error(status.exception.message!!)
                 }
@@ -53,13 +61,17 @@ class HomeViewModel @Inject constructor(
                 is NetworkResult.Success -> {
                     _uiState.value = HomeUiState.SearchSuccess(status.result)
                 }
+
+                null -> {
+
+                }
             }
         }
     }
 
     fun citySelected(data: CurrentData) {
         viewModelScope.launch {
-            dataStoreRepository.setLocation(data.location.name)
+            dataStoreRepository?.setLocation(data.location.name)
             _uiState.value = HomeUiState.CitySelected(data)
         }
     }
