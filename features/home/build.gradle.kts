@@ -35,6 +35,7 @@ dependencies {
     implementation(libs.kotlinx.serialization)
 
     implementation(libs.hilt.android)
+    implementation(libs.androidx.navigation.testing)
     kapt(libs.hilt.android.kapt)
     implementation(libs.hilt.compose)
     kapt(libs.hilt.compiler.kapt)
@@ -59,6 +60,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
+    testImplementation(libs.mockk)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
