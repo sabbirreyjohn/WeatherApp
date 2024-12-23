@@ -25,8 +25,12 @@ This repository contains a weather application developed as part of an assignmen
 - **Persistence**: DataStore
 - **Testing**:
    - **Unit Tests**: ViewModel tests.
+     ```
+     ./gradlew test
+     ```
    - **UI Tests**: Espresso integration for Compose screens.
-
+     ```
+     ./gradlew connectedAndroidTest
 ---
 
 ## **Project Structure**
