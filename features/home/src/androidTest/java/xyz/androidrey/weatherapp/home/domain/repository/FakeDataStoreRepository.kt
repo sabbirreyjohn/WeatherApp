@@ -2,7 +2,7 @@ package xyz.androidrey.weatherapp.home.domain.repository
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
-import live.studyquran.android.common.data.DataStoreRepository
+import live.studyquran.android.common.domain.repository.DataStoreRepository
 
 class FakeDataStoreRepository: DataStoreRepository {
     private var location: String = "Dhaka"

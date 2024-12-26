@@ -7,9 +7,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import live.studyquran.android.common.data.DataStoreRepository
+import live.studyquran.android.common.domain.repository.DataStoreRepository
 import xyz.androidrey.multimoduletemplate.network.NetworkResult
-import xyz.androidrey.weatherapp.home.data.repository.CurrentRepository
+import xyz.androidrey.weatherapp.home.domain.repository.CurrentRepository
 import xyz.androidrey.weatherapp.home.domain.entity.CurrentData
 import javax.inject.Inject
 

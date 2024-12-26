@@ -1,4 +1,4 @@
-package xyz.androidrey.weatherapp.home.data.repository
+package xyz.androidrey.weatherapp.home.domain.repository
 
 import xyz.androidrey.multimoduletemplate.network.NetworkResult
 import xyz.androidrey.weatherapp.home.domain.entity.CurrentData

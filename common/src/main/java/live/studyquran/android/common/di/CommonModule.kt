@@ -1,4 +1,4 @@
-package live.studyquran.android.common.domain.di
+package live.studyquran.android.common.di
 
 import android.content.Context
 import dagger.Module
@@ -9,18 +9,15 @@ import dagger.hilt.components.SingletonComponent
 import io.ktor.client.HttpClient
 import io.ktor.http.URLProtocol
 import live.studyquran.android.common.BuildConfig
-import live.studyquran.android.common.data.DataStoreRepository
-import live.studyquran.android.common.domain.repository.DataStoreRepositoryImpl
+import live.studyquran.android.common.domain.repository.DataStoreRepository
+import live.studyquran.android.common.data.repository.DataStoreRepositoryImpl
 import xyz.androidrey.multimoduletemplate.network.http.HttpClientBuilder
 import xyz.androidrey.multimoduletemplate.network.http.RequestHandler
 import javax.inject.Singleton
 
-
 @Module
 @InstallIn(SingletonComponent::class)
 class CommonModule {
-
-
     @Provides
     @Singleton
     fun provideHttpClient(): HttpClient =

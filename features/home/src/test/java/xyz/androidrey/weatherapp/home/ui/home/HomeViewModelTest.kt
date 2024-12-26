@@ -10,7 +10,7 @@ import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
-import live.studyquran.android.common.data.DataStoreRepository
+import live.studyquran.android.common.domain.repository.DataStoreRepository
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -20,7 +20,7 @@ import xyz.androidrey.weatherapp.home.domain.entity.Condition
 import xyz.androidrey.weatherapp.home.domain.entity.Current
 import xyz.androidrey.weatherapp.home.domain.entity.CurrentData
 import xyz.androidrey.weatherapp.home.domain.entity.Location
-import xyz.androidrey.weatherapp.home.domain.repository.CurrentRepositoryImpl
+import xyz.androidrey.weatherapp.home.data.repository.CurrentRepositoryImpl
 
 
 @ExperimentalCoroutinesApi

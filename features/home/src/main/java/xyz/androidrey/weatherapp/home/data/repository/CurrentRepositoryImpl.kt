@@ -1,9 +1,9 @@
-package xyz.androidrey.weatherapp.home.domain.repository
+package xyz.androidrey.weatherapp.home.data.repository
 
 import live.studyquran.android.common.BuildConfig
 import xyz.androidrey.multimoduletemplate.network.http.RequestHandler
-import xyz.androidrey.weatherapp.home.data.repository.CurrentRepository
 import xyz.androidrey.weatherapp.home.domain.entity.CurrentData
+import xyz.androidrey.weatherapp.home.domain.repository.CurrentRepository
 import javax.inject.Inject
 
 open class CurrentRepositoryImpl @Inject constructor(private val requestHandler: RequestHandler) :

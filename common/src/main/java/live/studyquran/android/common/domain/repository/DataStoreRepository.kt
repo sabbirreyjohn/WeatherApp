@@ -1,4 +1,4 @@
-package live.studyquran.android.common.data
+package live.studyquran.android.common.domain.repository
 
 import kotlinx.coroutines.flow.Flow
 
